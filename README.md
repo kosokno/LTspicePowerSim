@@ -1,2 +1,2 @@
 # LTspicePowerSim
-Simulink-like Power Electronics Simuation environment on LTspice 
+A Simulink-like power electronics simulation environment built on LTspice, featuring ready-to-use circuit libraries and custom tools.
