@@ -6,6 +6,9 @@ A Simulink-like power electronics simulation environment built on LTspice, featu
 - clean.bat: deletes copied files from LTspice folder.
 - open_install_folder: opens LTspice folder
 
+# Symbols
+![alt text](image.png)
+
 # Example Screen Shot
 ![alt text](./example/3Ph-TTP-PFC_TB-DPC.png)
 
