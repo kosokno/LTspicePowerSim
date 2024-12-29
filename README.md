@@ -7,7 +7,7 @@ A Simulink-like power electronics simulation environment built on LTspice, featu
 - open_install_folder: opens LTspice folder
 
 # Symbols
-![alt text](image.png)
+![alt text](./Symbols.png)
 
 # Example Screen Shot
 ![alt text](./example/3Ph-TTP-PFC_TB-DPC.png)
