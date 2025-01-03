@@ -5,7 +5,7 @@ REM Set username variable (using environment variable USERNAME)
 set "username=%USERNAME%"
 
 REM Set source directory path (modify this according to your downloaded library path)
-set "source_dir=%~dp0sym\PowerSim"
+set "source_dir=%~dp0\..\sym\PowerSim"
 
 REM Set destination directory path
 set "destination_dir=C:\Users\%username%\AppData\Local\LTspice\lib\sym\PowerSim"
