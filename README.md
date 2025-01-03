@@ -53,3 +53,7 @@ To use LTspicePowerSim, you need to have the following installed:
     ```
 - Replace `<username>` with your username.
 
+
+## Tips
+- **Simulation Convergence**: In most cases, the simulation will work smoothly with the **Normal Solver**. However, if the simulation fails to converge, try switching to the **Alternate Solver**.  
+  You can change the solver settings by navigating to **Tools > Settings**, then selecting the **SPICE > Engine > Solver** section in the control panel.
