@@ -14,8 +14,21 @@ LTspicePowerSim is a Simulink-like power electronics simulation environment buil
 ![alt text](./example/ExampleList.png)
 
 ## Example Screen Shot
-### Peak Current Control Buck 
+### Type2 Compensator
+![alt text](./example/TYPE2_FRA.png)
+
+
+### Peak Current Control Buck Converter
 ![alt text](./example/BUCK_PCM.png)
+
+### Peak Current Control Boost Converter
+![alt text](./example/BOOST_PCM.png)
+
+### Flyback Converter
+![alt text](./example/FLYBACK.png)
+
+### Phase Shift Full Bridge Converter 
+![alt text](./example/PSFB.png)
 
 ### LLC Converter 
 ![alt text](./example/LLC.png)
