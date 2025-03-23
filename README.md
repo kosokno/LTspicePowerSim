@@ -36,6 +36,9 @@ LTspicePowerSim is a Simulink-like power electronics simulation environment buil
 ### Three phase PFC
 ![alt text](./example/3Ph-TTP-PFC_TB-DPC.png)
 
+### Voltage mode buck with discrete control
+![alt text](./example/BUCK_VM_discrete.png)
+
 
 ## Getting Started
 
