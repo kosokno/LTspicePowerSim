@@ -24,7 +24,7 @@ LTspicePowerSim is a Simulink-like power electronics simulation environment buil
 ### Peak Current Control Boost Converter
 ![alt text](./example/BOOST_PCM.png)
 
-### Flyback Converter
+### Boundary Mode Flyback Converter
 ![alt text](./example/FLYBACK.png)
 
 ### Phase Shift Full Bridge Converter 
@@ -33,8 +33,14 @@ LTspicePowerSim is a Simulink-like power electronics simulation environment buil
 ### LLC Converter 
 ![alt text](./example/LLC.png)
 
-### Three phase PFC
+### 2phase Interleaved Single phase input Totempole Bridgeless Boost PFC
+![alt text](./example/1Ph-TTP-PFC_2ITLV.png)
+
+### Three phase input Totempole Bridgeless Boost PFC with Table Based Direct Power Control
 ![alt text](./example/3Ph-TTP-PFC_TB-DPC.png)
+
+### Three phase input Totempole Bridgeless Boost PFC with Voltage Oriented Control and SVPWM
+![alt text](./example/3Ph-TTP-PFC_VOC_SVPWM.png)
 
 ### Voltage mode buck with discrete control
 ![alt text](./example/BUCK_VM_discrete.png)
