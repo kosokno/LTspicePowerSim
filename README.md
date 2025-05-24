@@ -42,8 +42,16 @@ LTspicePowerSim is a Simulink-like power electronics simulation environment buil
 ### Three phase input Totempole Bridgeless Boost PFC with Voltage Oriented Control and SVPWM
 ![alt text](./example/3Ph-TTP-PFC_VOC_SVPWM.png)
 
+### Discrete PID Compensator
+![alt text](./example/zPID_fra.png)
+
+
 ### Voltage mode buck with discrete control
 ![alt text](./example/BUCK_VM_discrete.png)
+
+### Nerural Network Conrolled Voltage mode buck using [PyTorch2LTspice](https://github.com/kosokno/PyTorch2LTspice.git) (WIP)
+![alt text](./example/NN_BUCK_VM.png)
+
 
 
 ## Getting Started
