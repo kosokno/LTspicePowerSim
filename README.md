@@ -43,7 +43,7 @@ LTspicePowerSim is a Simulink-like power electronics simulation environment buil
 ![alt text](./example/3Ph-TTP-PFC_VOC_SVPWM.png)
 
 ### Discrete PID Compensator
-![alt text](./example/zPID_fra.png)
+![alt text](./example/zPID_FRA.png)
 
 
 ### Voltage mode buck with discrete control
