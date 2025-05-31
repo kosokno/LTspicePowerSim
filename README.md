@@ -68,7 +68,11 @@ To use LTspicePowerSim, you need to have the following installed:
 
 - Copy the contents of the `sym\PowerSim` folder from this repository to:
     ```
+   For LTspice 24.0.12 or earler
     C:\Users\<username>\AppData\Local\LTspice\lib\sym\PowerSim
+   
+   For LTspice 24.1.0 onwards
+    C:\Users\<username>\Documents\LTspice\lib\sym\PowerSim
     ```
 - Replace `<username>` with your username.
 - Or you can use following batch files in `bat` folders.
@@ -78,6 +82,12 @@ To use LTspicePowerSim, you need to have the following installed:
     | `install.bat`          | Copies the model files into the LTspice folder.    |
     | `clean.bat`            | Removes all copied files from the LTspice folder.                          |
     | `open_install_folder.bat` | Opens the LTspice directory where the files are installed.               |
+
+
+    > **Note:**  
+    > Updated batch files to follow 24.1.0 onwards while keeping old ones in "old(-24.0.12)" folder.
+
+
 
 ### Model Installation (Windows)
 

@@ -2,7 +2,7 @@
 setlocal
 
 REM Set the target directory path. Uses the %username% environment variable.
-set "target_dir=C:\Users\%username%\Documents\LTspice\lib\sym\PowerSim"
+set "target_dir=C:\Users\%username%\AppData\Local\LTspice\lib\sym\PowerSim"
 
 REM Check if the target directory exists
 if exist "%target_dir%\" (

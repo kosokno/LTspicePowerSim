@@ -8,7 +8,7 @@ REM Set source directory path (modify this according to your downloaded library 
 set "source_dir=%~dp0\..\sym\PowerSim"
 
 REM Set destination directory path
-set "destination_dir=C:\Users\%username%\Documents\LTspice\lib\sym\PowerSim"
+set "destination_dir=C:\Users\%username%\AppData\Local\LTspice\lib\sym\PowerSim"
 
 REM Check if source directory exists
 if not exist "%source_dir%" (

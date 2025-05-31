@@ -5,7 +5,7 @@ REM Set username variable (using environment variable USERNAME)
 set "username=%USERNAME%"
 
 REM Set destination directory path
-set "destination_dir=C:\Users\%username%\Documents\LTspice\lib\sym\PowerSim"
+set "destination_dir=C:\Users\%username%\AppData\Local\LTspice\lib\sym\PowerSim"
 
 REM Check if destination directory exists
 if not exist "%destination_dir%" (
