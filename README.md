@@ -71,7 +71,7 @@ To use LTspicePowerSim, you need to have the following installed:
    For LTspice 24.0.12 or earler
     C:\Users\<username>\AppData\Local\LTspice\lib\sym\PowerSim
    
-   For LTspice 24.1.0 onwards
+   For LTspice 24.1.0 and up
     C:\Users\<username>\Documents\LTspice\lib\sym\PowerSim
     ```
 - Replace `<username>` with your username.
@@ -87,9 +87,10 @@ To use LTspicePowerSim, you need to have the following installed:
     > **Note:**  
     > Updated batch files to follow 24.1.0 onwards while keeping old ones in "old(-24.0.12)" folder.
 
+- For LTspice 24.1.0 and up you also need to set the path for the PowerSim folder to be able to open the example files correctly. Just go to **Tools** > **Setting** and add the path as shown below.
+![alt text](./SearchPathSetting.png)
 
-
-### Model Installation (Windows)
+### Model Installation (macOS)
 
 - Copy the contents of the `sym\PowerSim` folder from this repository to:
     ```
