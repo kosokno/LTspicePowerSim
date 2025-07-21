@@ -14,7 +14,7 @@ LINE Normal -8 4 -32 0
 LINE Normal -40 32 -40 -32
 LINE Normal -48 32 -40 32
 WINDOW 0 -48 -32 Right 2
-SYMATTR Description Ideal NMOS, to be drvied with ideal gate driver "iGD"
+SYMATTR Description Ideal NMOS, intended to be driven by the ideal gate driver "iGD"
 SYMATTR Value esl=1f rsnb=1k csnb=10p
 SYMATTR SpiceLine ron=10m
 PIN 0 -48 NONE 8

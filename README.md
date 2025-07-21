@@ -49,6 +49,9 @@ LTspicePowerSim is a Simulink-like power electronics simulation environment buil
 ### Voltage mode buck with discrete control
 ![alt text](./example/BUCK_VM_discrete.png)
 
+### 2phase Stepper motor, micro step control
+![alt text](./example/STEP2PH_uSTEP.png)
+
 ### Nerural Network Conrolled Voltage mode buck using [PyTorch2LTspice](https://github.com/kosokno/PyTorch2LTspice.git) (WIP)
 ![alt text](./example/NN_BUCK_VM.png)
 
