@@ -9,11 +9,7 @@ LTspicePowerSim is a Simulink-like power electronics simulation environment buil
 ## Symbols
 ![alt text](./Symbols.png)
 
-
-## Example List
-![alt text](./example/ExampleList.png)
-
-## Example Screen Shot
+## Example Screen Shot    
 ### Type2 Compensator
 ![alt text](./example/TYPE2_FRA.png)
 
@@ -33,18 +29,14 @@ LTspicePowerSim is a Simulink-like power electronics simulation environment buil
 ### LLC Converter 
 ![alt text](./example/LLC.png)
 
-### 2phase Interleaved Single phase input Totempole Bridgeless Boost PFC
+###  2phase Interleaved Single phase input Totempole Bridgeless Boost PFC
 ![alt text](./example/1Ph-TTP-PFC_2ITLV.png)
 
-### Three phase input Totempole Bridgeless Boost PFC with Table Based Direct Power Control
-![alt text](./example/3Ph-TTP-PFC_TB-DPC.png)
-
-### Three phase input Totempole Bridgeless Boost PFC with Voltage Oriented Control and SVPWM
+### 3 phase input Totempole Bridgeless Boost PFC with Voltage Oriented Control and SVPWM
 ![alt text](./example/3Ph-TTP-PFC_VOC_SVPWM.png)
 
 ### Discrete PID Compensator
 ![alt text](./example/zPID_FRA.png)
-
 
 ### Voltage mode buck with discrete control
 ![alt text](./example/BUCK_VM_discrete.png)
@@ -56,6 +48,12 @@ LTspicePowerSim is a Simulink-like power electronics simulation environment buil
 ![alt text](./example/NN_BUCK_VM.png)
 
 
+<br>
+
+>**More Examples Available!**  
+>👉 [🖼️ Go To Full Gallery](./example/GALLERY.md)
+
+<br>
 
 ## Getting Started
 
