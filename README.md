@@ -51,7 +51,7 @@ LTspicePowerSim is a Simulink-like power electronics simulation environment buil
 <br>
 
 >**More Examples Available!**  
->👉 [🖼️ Go To Full Gallery](./example/GALLERY.md)
+>👉 [🖼️ Go To Full Gallery](./example/Gallery.md)
 
 <br>
 
