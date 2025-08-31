@@ -1,15 +1,15 @@
 # LTspicePowerSim
 LTspicePowerSim is a Simulink-like power electronics simulation environment built on LTspice. It provides a library of ready-to-use circuit designs and custom tools, making power electronics simulation easier and more accessible for engineers and researchers.
 
-## Features
+## Features✨
 - **Optimized Models for Convergence**: Includes circuit models specifically designed to enhance simulation convergence.
 - **Transparent Model Definitions**: All models are defined using LTspice schematic files (.asc), allowing users to view and edit the circuits directly as needed.
 - **Extensive Example Circuits**: From basic converters such as Buck and Boost to advanced circuits like resonant converters and PFC (Power Factor Correction), the repository includes a wide range of example circuits.
 
-## Symbols
+## Symbols🧩
 ![alt text](./Symbols.png)
 
-## Example Screen Shot    
+## Example Screen Shot🖼️    
 ### Type2 Compensator
 ![alt text](./example/TYPE2_FRA.png)
 
@@ -32,7 +32,7 @@ LTspicePowerSim is a Simulink-like power electronics simulation environment buil
 ###  2phase Interleaved Single phase input Totempole Bridgeless Boost PFC
 ![alt text](./example/1Ph-TTP-PFC_2ITLV.png)
 
-### 3 phase input Totempole Bridgeless Boost PFC with Voltage Oriented Control and SVPWM
+### 3 phase input Totempole Bridgeless Boost PFC with Voltage Oriented Control (VOC) and SVPWM
 ![alt text](./example/3Ph-TTP-PFC_VOC_SVPWM.png)
 
 ### Discrete PID Compensator
@@ -41,8 +41,8 @@ LTspicePowerSim is a Simulink-like power electronics simulation environment buil
 ### Voltage mode buck with discrete control
 ![alt text](./example/BUCK_VM_discrete.png)
 
-### 2phase Stepper motor, micro step control
-![alt text](./example/STEP2PH_uSTEP.png)
+### 2phase Stepper motor, Field oriented control (FOC)
+![alt text](./example/STEP2PH_FOC.png)
 
 ### Nerural Network Conrolled Voltage mode buck using [PyTorch2LTspice](https://github.com/kosokno/PyTorch2LTspice.git) (WIP)
 ![alt text](./example/NN_BUCK_VM.png)
@@ -55,7 +55,7 @@ LTspicePowerSim is a Simulink-like power electronics simulation environment buil
 
 <br>
 
-## Getting Started
+## Getting Started💡
 
 ### Prerequisites
 
@@ -100,6 +100,18 @@ To use LTspicePowerSim, you need to have the following installed:
 - Replace `<username>` with your username.
 
 
-## Tips
-- **Simulation Convergence**: In most cases, the simulation will work smoothly with the **Normal Solver**. However, if the simulation fails to converge, try switching to the **Alternate Solver**.  
-  You can change the solver settings by navigating to **Tools > Settings**, then selecting the **SPICE > Engine > Solver** section in the control panel.
+## Tips💡
+- **Simulation Convergence**  
+  - In most cases, simulations run stably with:  
+    ```spice
+    .options solver="norm"       <-- Other option: "alt"
+    .options method="gear"       <-- Other option:"trap", "modtrap"
+    ```  
+    Try other option if simulation didn't converge.<br>
+    The `.options solver` directive is available starting from **LTspice v24.1.0**. 
+  - If convergence issues still occur, add:  
+    ```spice
+    .options debugtran
+    ```  
+    This helps identify which devices or nodes are causing difficulties in convergence.  
+    The `.options debugtran` directive is also supported from **v24.1.0**.  
