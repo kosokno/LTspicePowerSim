@@ -156,6 +156,14 @@
     <img src="./STEP2PH_FOC.png" style="width:100%;border-radius:8px;box-shadow:0 2px 6px rgba(0,0,0,0.2);" />
   </a>
 
+  <a href="./PMSM_FOC.png" style="flex:1 1 200px;max-width:200px;">
+    <div align="center"><sub><strong>PMSM_FOC</strong></sub></div>  
+    <img src="./PMSM_FOC.png" style="width:100%;border-radius:8px;box-shadow:0 2px 6px rgba(0,0,0,0.2);" />
+  </a>
+
+
+
+
 </section>
 
 # Component usage matrix
