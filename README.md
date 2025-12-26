@@ -1,60 +1,66 @@
 # LTspicePowerSim
-LTspicePowerSim is a Simulink-like power electronics simulation environment built on LTspice. It provides a library of ready-to-use circuit designs and custom tools, making power electronics simulation easier and more accessible for engineers and researchers.
+LTspicePowerSim is a Simulink-like power electronics simulation environment built on LTspice. It provides a library of reusable circuit-level models together with extensive example circuits, making power electronics simulation easier and more accessible for engineers and researchers.
 
-## Features✨
-- **Optimized Models for Convergence**: Includes circuit models specifically designed to enhance simulation convergence.
-- **Transparent Model Definitions**: All models are defined using LTspice schematic files (.asc), allowing users to view and edit the circuits directly as needed.
-- **Extensive Example Circuits**: From basic converters such as Buck and Boost to advanced circuits like resonant converters and PFC (Power Factor Correction), the repository includes a wide range of example circuits.
+
+  ## Features✨
+  - **Optimized Models for Convergence**: Includes circuit models specifically designed to enhance simulation convergence.
+  - **Transparent Model Definitions**: All models are defined using LTspice schematic files (.asc), allowing users to view and edit the circuits directly as needed.
+  - **Extensive example circuits**: A wide range of example circuits covering DC-DC converters, resonant converters, Totem-Pole PFC, motor drivers, battery charger, and digitally controlled power stages.
+
 
 ## Symbols🧩
-![alt text](./Symbols.png)
+![LTspicePowerSim custom symbols for power electronics schematics](./Symbols.png)
 
 ## Example Screen Shot🖼️    
-### Type2 Compensator
-![alt text](./example/TYPE2_FRA.png)
+
+### Type-II Compensator (FRA)
+![LTspice schematic: Type-II compensator for DC-DC converter loop stability (FRA)](./example/TYPE2_FRA.png)
 
 
-### Peak Current Control Buck Converter
-![alt text](./example/BUCK_PCM.png)
+### Peak Current Mode Buck Converter (Current-Mode Control)
+![LTspice schematic: Peak current mode buck converter (PCM control)](./example/BUCK_PCM.png)
 
-### Peak Current Control Boost Converter
-![alt text](./example/BOOST_PCM.png)
+### Peak Current Mode Boost Converter (Current-Mode Control)
+![LTspice schematic: Peak current mode boost converter (current-mode control)](./example/BOOST_PCM.png)
 
-### Boundary Mode Flyback Converter
-![alt text](./example/FLYBACK.png)
+### CCCV Buck Converter for Battery Charging (CC/CV control)
+![LTspice schematic: CCCV buck converter for battery charging (CC/CV control)](./example/BUCK_CCCV.png)
 
-### Phase Shift Full Bridge Converter 
-![alt text](./example/PSFB.png)
+### Boundary Counduction Mode Flyback Converter (BCM / CrCM)
+![LTspice schematic: Boundary conduction mode flyback converter (BCM / CrCM)](./example/FLYBACK.png)
 
-### LLC Converter 
-![alt text](./example/LLC.png)
+### Phase-Shift Full-Bridge Converter (PSFB with ZVS) 
+![LTspice schematic: Phase-shift full-bridge converter with ZVS (PSFB)](./example/PSFB.png)
 
-###  2phase Interleaved Single phase input Totempole Bridgeless Boost PFC
-![alt text](./example/1Ph-TTP-PFC_2ITLV.png)
+### LLC Resonant Converter (Frequency Control)
+![LTspice schematic: LLC resonant converter (gain curve and frequency control)](./example/LLC.png)
 
-### 1 phase input 4 Level Totempole Bridgeless Boost PFC
-![alt text](./example/1Ph-4LvTTP-PFC.png)
+###  Single-Phase Totem-Pole PFC (2-Phase Interleaved)
+![LTspice schematic: Single-phase totem-pole PFC (2-phase interleaved bridgeless)](./example/1Ph-TTP-PFC_2ITLV.png)
 
-### 3 phase input Totempole Bridgeless Boost PFC with Voltage Oriented Control (VOC) and SVPWM
-![alt text](./example/3Ph-TTP-PFC_VOC_SVPWM.png)
+### Single-Phase 4-Level Totem-Pole PFC
+![LTspice schematic: Single-phase 4-level totem-pole PFC (bridgeless topology)](./example/1Ph-4LvTTP-PFC.png)
 
-### Discrete PID Compensator
-![alt text](./example/zPID_FRA.png)
+### Three-Phase Totem-Pole PFC (VOC + SVPWM Control)
+![LTspice schematic: Three-phase totem-pole PFC using VOC and SVPWM control](./example/3Ph-TTP-PFC_VOC_SVPWM.png)
 
-### Voltage mode buck with discrete control
-![alt text](./example/BUCK_VM_discrete.png)
+### Discrete-Time PID Controller (Z-Domain FRA)
+![LTspice schematic: Discrete-time PID controller (z-domain FRA analysis)](./example/zPID_FRA.png)
 
-### 2phase Stepper motor, Field oriented control (FOC)
-![alt text](./example/STEP2PH_FOC.png)
+### Discrete-Time Voltage-Mode Buck Converter (Digital Control)
+![LTspice schematic: Discrete-time voltage-mode buck converter (digital control)](./example/BUCK_VM_discrete.png)
 
-### Nerural Network Conrolled Voltage mode buck using [PyTorch2LTspice](https://github.com/kosokno/PyTorch2LTspice.git) (WIP)
-![alt text](./example/NN_BUCK_VM.png)
+### Two-Phase Stepper Motor Control using FOC
+![LTspice schematic: Two-phase stepper motor control using field-oriented control (FOC)](./example/STEP2PH_FOC.png)
+
+### Nerural-Network Controlled Buck Converter using [pytorch2ltspice](https://github.com/kosokno/pytorch2ltspice.git)
+![LTspice schematic: Neural-network-controlled buck converter (LTspice and PyTorch)](./example/NN_BUCK_VM.png)
 
 
 <br>
 
 >**More Examples Available!**  
->👉 [🖼️ Go To Full Gallery](./example/Gallery.md)
+➡️ [**Go to Full Gallery 🖼️**](./example/Gallery.md)
 
 <br>
 
