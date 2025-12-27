@@ -89,6 +89,14 @@ example/02_DC_DC_Converters/01_BuckFamily/BUCK_VM/BUCK_VM.png
 )
 ---
 
+#### Asynchronous Buck Converter (FRA)
+Classic asynchronous buch converter using voltage-mode control.
+
+![LTspice schematic: Asynchronous Buck converter with voltage-mode control](
+example/02_DC_DC_Converters/01_BuckFamily/BUCK_VM_ASYNC/BUCK_VM_ASYNC.png
+)
+---
+
 #### Buck Converter – Voltage Mode Control (CCM Plant)
 Continuous conduction mode (CCM) plant model for control analysis.
 
