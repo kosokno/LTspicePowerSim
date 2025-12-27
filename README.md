@@ -9,58 +9,65 @@ LTspicePowerSim is a Simulink-like power electronics simulation environment buil
 
 
 ## Symbols🧩
-![LTspicePowerSim custom symbols for power electronics schematics](./Symbols.png)
+![LTspicePowerSim custom symbols for power electronics schematics](./example/00_Symbols/Symbols.png)
 
 ## Example Screen Shot🖼️    
 
 ### Type-II Compensator (FRA)
-![LTspice schematic: Type-II compensator for DC-DC converter loop stability (FRA)](./example/TYPE2_FRA.png)
+![LTspice schematic: Type-II compensator for DC-DC converter loop stability (FRA)](./example/01_ControlAndCompensation/01_AnalogCompensation/TYPE2_FRA/TYPE2_FRA.png)
 
 
 ### Peak Current Mode Buck Converter (Current-Mode Control)
-![LTspice schematic: Peak current mode buck converter (PCM control)](./example/BUCK_PCM.png)
+![LTspice schematic: Peak current mode buck converter (PCM control)](./example/02_DC_DC_Converters/01_BuckFamily/BUCK_PCM/BUCK_PCM.png)
+
 
 ### Peak Current Mode Boost Converter (Current-Mode Control)
-![LTspice schematic: Peak current mode boost converter (current-mode control)](./example/BOOST_PCM.png)
+![LTspice schematic: Peak current mode boost converter (current-mode control)](./example/02_DC_DC_Converters/02_Boost_BuckBoost/BOOST_PCM/BOOST_PCM.png)
+
 
 ### CCCV Buck Converter for Battery Charging (CC/CV control)
-![LTspice schematic: CCCV buck converter for battery charging (CC/CV control)](./example/BUCK_CCCV.png)
+![LTspice schematic: CCCV buck converter for battery charging (CC/CV control)](./example/06_BatteryAndEnergyStorage/01_BatteryModels/BUCK_CCCV/BUCK_CCCV.png)
+
 
 ### Boundary Counduction Mode Flyback Converter (BCM / CrCM)
-![LTspice schematic: Boundary conduction mode flyback converter (BCM / CrCM)](./example/FLYBACK.png)
+![LTspice schematic: Boundary conduction mode flyback converter (BCM / CrCM)](./example/02_DC_DC_Converters/02_Boost_BuckBoost/FLYBACK/FLYBACK.png)
+
 
 ### Phase-Shift Full-Bridge Converter (PSFB with ZVS) 
-![LTspice schematic: Phase-shift full-bridge converter with ZVS (PSFB)](./example/PSFB.png)
+![LTspice schematic: Phase-shift full-bridge converter with ZVS (PSFB)](./example/03_ResonantAndIsolatedConverters/01_PhaseShiftedAndResonant/PSFB/PSFB.png)
+
 
 ### LLC Resonant Converter (Frequency Control)
-![LTspice schematic: LLC resonant converter (gain curve and frequency control)](./example/LLC.png)
+![LTspice schematic: LLC resonant converter (gain curve and frequency control)](./example/03_ResonantAndIsolatedConverters/01_PhaseShiftedAndResonant/LLC/LLC.png)
+
 
 ###  Single-Phase Totem-Pole PFC (2-Phase Interleaved)
-![LTspice schematic: Single-phase totem-pole PFC (2-phase interleaved bridgeless)](./example/1Ph-TTP-PFC_2ITLV.png)
+![LTspice schematic: Single-phase totem-pole PFC (2-phase interleaved bridgeless)](./example/04_PowerFactorCorrection/01_SinglePhaseTotemPole/1Ph-TTP-PFC_2ITLV/1Ph-TTP-PFC_2ITLV.png)
+
 
 ### Single-Phase 4-Level Totem-Pole PFC
-![LTspice schematic: Single-phase 4-level totem-pole PFC (bridgeless topology)](./example/1Ph-4LvTTP-PFC.png)
+![LTspice schematic: Single-phase 4-level totem-pole PFC (bridgeless topology)](./example/04_PowerFactorCorrection/01_SinglePhaseTotemPole/1Ph-4LvTTP-PFC/1Ph-4LvTTP-PFC.png)
 
 ### Three-Phase Totem-Pole PFC (VOC + SVPWM Control)
-![LTspice schematic: Three-phase totem-pole PFC using VOC and SVPWM control](./example/3Ph-TTP-PFC_VOC_SVPWM.png)
+![LTspice schematic: Three-phase totem-pole PFC using VOC and SVPWM control](./example/04_PowerFactorCorrection/02_ThreePhaseTotemPole/3Ph-TTP-PFC_VOC_SVPWM/3Ph-TTP-PFC_VOC_SVPWM.png)
 
 ### Discrete-Time PID Controller (Z-Domain FRA)
-![LTspice schematic: Discrete-time PID controller (z-domain FRA analysis)](./example/zPID_FRA.png)
+![LTspice schematic: Discrete-time PID controller (z-domain FRA analysis)](./example/01_ControlAndCompensation/02_DigitalCompensation/zPID_FRA/zPID_FRA.png)
 
 ### Discrete-Time Voltage-Mode Buck Converter (Digital Control)
-![LTspice schematic: Discrete-time voltage-mode buck converter (digital control)](./example/BUCK_VM_discrete.png)
+![LTspice schematic: Discrete-time voltage-mode buck converter (digital control)](./example/02_DC_DC_Converters/01_BuckFamily/BUCK_VM_discrete/BUCK_VM_discrete.png)
 
 ### Two-Phase Stepper Motor Control using FOC
-![LTspice schematic: Two-phase stepper motor control using field-oriented control (FOC)](./example/STEP2PH_FOC.png)
+![LTspice schematic: Two-phase stepper motor control using field-oriented control (FOC)](./example/05_MotorDriveAndControl/01_StepperMotorDrives/STEP2PH_FOC/STEP2PH_FOC.png)
 
 ### Nerural-Network Controlled Buck Converter using [pytorch2ltspice](https://github.com/kosokno/pytorch2ltspice.git)
-![LTspice schematic: Neural-network-controlled buck converter (LTspice and PyTorch)](./example/NN_BUCK_VM.png)
+![LTspice schematic: Neural-network-controlled buck converter (LTspice and PyTorch)](./img/NN_BUCK_VM.png)
 
 
 <br>
 
 >**More Examples Available!**  
-➡️ [**Go to Full Gallery 🖼️**](./example/Gallery.md)
+➡️ [**Go to Full Gallery 🖼️**](./Gallery.md)
 
 <br>
 
@@ -98,7 +105,7 @@ To use LTspicePowerSim, you need to have the following installed:
     > Updated batch files to follow 24.1.0 onwards while keeping old ones in "old(-24.0.12)" folder.
 
 - For LTspice 24.1.0 and up you also need to set the path for the PowerSim folder to be able to open the example files correctly. Just go to **Tools** > **Setting** and add the path as shown below.
-![alt text](./SearchPathSetting.png)
+![LTspice setting: add PowerSim symbol search path](./img/SearchPathSetting.png)
 
 ### Model Installation (macOS)
 
