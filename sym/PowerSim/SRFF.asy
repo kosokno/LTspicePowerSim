@@ -6,6 +6,7 @@ LINE Normal -40 23 -32 16
 LINE Normal -32 16 -40 9
 RECTANGLE Normal -32 -40 48 40
 WINDOW 0 8 -40 Bottom 2
+SYMATTR SpiceLine prio=0
 PIN -32 16 LEFT 8
 PINATTR PinName R
 PINATTR SpiceOrder 1
