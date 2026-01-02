@@ -9,6 +9,7 @@ LINE Normal -40 7 -32 0
 LINE Normal -32 0 -40 -7
 RECTANGLE Normal -32 -24 32 24
 WINDOW 0 8 -24 Bottom 2
+SYMATTR SpiceLine td=10n
 PIN -32 0 NONE 8
 PINATTR PinName in
 PINATTR SpiceOrder 1
