@@ -11,8 +11,9 @@ This gallery presents example circuits included in **LTspicePowerSim**, all prov
 - [DC-DC Converters](#dc-dc-converters)
   - [Buck Family](#buck-family)
   - [Boost / Buck-Boost](#boost--buck-boost)
-  - [Flyback](#flyback)
+  - [TLVR](#tlvr)
 - [Resonant & Isolated Converters](#resonant--isolated-converters)
+  - [Basic Isolated Converters](#basic-isolated-converters)
   - [Phase-Shifted & Resonant](#phase-shifted--resonant)
   - [Bidirectional Isolated](#bidirectional-isolated)
 - [Power Factor Correction (PFC)](#power-factor-correction-pfc)
@@ -195,17 +196,29 @@ example/02_DC_DC_Converters/02_Boost_BuckBoost/SEPIC_PCM/SEPIC_PCM.png
 )
 ---
 
-### Flyback
+### TLVR
+
+#### TLVR Four-Phase Buck (Power Stage Model) with Fixed Ton
+Four-phase TLVR buck power stage using simple fixed-Ton pulse injection.
+
+![LTspice schematic:TLVR Four-Phase Buck (Power Stage Model) with Fixed Ton](
+example/02_DC_DC_Converters/03_TLVR/TLVR_4phBUCK_powerstage/TLVR_4phBUCK_powerstage.png
+)
+---
+
+
+## Resonant & Isolated Converters
+
+### Basic Isolated Converters
 
 #### Flyback Converter – Boundary Conduction Mode
 Boundary conduction mode flyback converter for isolated power supplies.
 
 ![LTspice schematic: Boundary conduction mode flyback converter](
-example/02_DC_DC_Converters/02_Boost_BuckBoost/FLYBACK/FLYBACK.png
+example/03_ResonantAndIsolatedConverters/00_IsolatedBasics/FLYBACK/FLYBACK.png
 )
 ---
 
-## Resonant & Isolated Converters
 
 ### Phase-Shifted & Resonant
 
