@@ -30,7 +30,7 @@ LTspicePowerSim is a Simulink-like power electronics simulation environment buil
 
 
 ### Boundary Counduction Mode Flyback Converter (BCM / CrCM)
-![LTspice schematic: Boundary conduction mode flyback converter (BCM / CrCM)](./example/02_DC_DC_Converters/02_Boost_BuckBoost/FLYBACK/FLYBACK.png)
+![LTspice schematic: Boundary conduction mode flyback converter (BCM / CrCM)](./example/03_ResonantAndIsolatedConverters/00_IsolatedBasics/FLYBACK/FLYBACK.png)
 
 
 ### Phase-Shift Full-Bridge Converter (PSFB with ZVS) 
