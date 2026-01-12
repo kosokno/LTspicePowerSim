@@ -77,6 +77,21 @@ Textbook charge-pump PLL for clock and phase synchronization.
 example/01_ControlAndCompensation/03_ControlBuildingBlocks/CP_PLL/CP_PLL.png
 )
 ---
+#### SOGI PLL (Second-Order Generalized Integrator PLL)
+Single-phase PLL using a Second-Order Generalized Integrator to generate orthogonal signals, with d-axis zero regulation for phase locking.
+
+![LTspice schematic: SOGI PLL (Second-Order Generalized Integrator PLL)](
+example/01_ControlAndCompensation/03_ControlBuildingBlocks/SOGI_PLL/SOGI_PLL.png
+)
+---
+#### SRF PLL (Synchronous Reference Frame PLL)
+Three-phase PLL based on Clarke/Park transforms, using q-axis regulation to track grid phase and frequency.
+
+![LTspice schematic: SRF PLL (Synchronous Reference Frame PLL)](
+example/01_ControlAndCompensation/03_ControlBuildingBlocks/SRF_PLL/SRF_PLL.png
+)
+---
+
 
 ## DC-DC Converters
 
