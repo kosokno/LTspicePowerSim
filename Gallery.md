@@ -36,8 +36,8 @@ This gallery presents example circuits included in **LTspicePowerSim**, all prov
 #### Type-II Compensator (FRA)
 Analog Type-II compensator for loop stability and frequency response analysis.
 
-![LTspice schematic: Buck converter with voltage-mode control](
-example/02_DC_DC_Converters/01_BuckFamily/BUCK_VM/BUCK_VM.png
+![LTspice schematic: Type-II compensator frequency response analysis (FRA)](
+example/01_ControlAndCompensation/01_AnalogCompensation/TYPE2_FRA/TYPE2_FRA.png
 )
 
 ---
@@ -45,7 +45,7 @@ example/02_DC_DC_Converters/01_BuckFamily/BUCK_VM/BUCK_VM.png
 #### Type-III Compensator (FRA)
 Analog Type-III compensator for loop stability and frequency response analysis.
 
-![LTspice schematic: Type-III compensator for SMPS frequency response analysis (FRA)](
+![LTspice schematic: Type-III compensator frequency response analysis (FRA)](
 example/01_ControlAndCompensation/01_AnalogCompensation/TYPE3_FRA/TYPE3_FRA.png
 )
 
