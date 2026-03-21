@@ -12,6 +12,7 @@ This gallery presents example circuits included in **LTspicePowerSim**, all prov
   - [Buck Family](#buck-family)
   - [Boost / Buck-Boost](#boost--buck-boost)
   - [TLVR](#tlvr)
+  - [Switched-Capacitor](#switched-capacitor)
 - [Resonant & Isolated Converters](#resonant--isolated-converters)
   - [Basic Isolated Converters](#basic-isolated-converters)
   - [Phase-Shifted & Resonant](#phase-shifted--resonant)
@@ -218,6 +219,24 @@ Four-phase TLVR buck power stage using simple fixed-Ton pulse injection.
 
 ![LTspice schematic:TLVR Four-Phase Buck (Power Stage Model) with Fixed Ton](
 example/02_DC_DC_Converters/03_TLVR/TLVR_4phBUCK_powerstage/TLVR_4phBUCK_powerstage.png
+)
+---
+
+### Switched-Capacitor
+
+#### 2:1 Ladder Switched-Capacitor Converter – Open Loop
+Open-loop 2:1 ladder switched-capacitor converter for basic SCC operation.
+
+![LTspice schematic: 2:1 ladder switched-capacitor converter (open loop)](
+example/02_DC_DC_Converters/04_SwitchedCap/SCC_Ladder_2to1_openloop/SCC_Ladder_2to1_openloop.png
+)
+---
+
+#### 2:1 Ladder Resonant Switched-Capacitor Converter – Phase-Shift Closed-Loop Control
+Closed-loop 2:1 ladder resonant switched-capacitor converter using phase-shift control.
+
+![LTspice schematic: 2:1 ladder resonant switched-capacitor converter with phase-shift closed-loop control](
+example/02_DC_DC_Converters/04_SwitchedCap/SCC_Ladder_2to1_PhaseShiftResonant/SCC_Ladder_2to1_PhaseShiftResonant.png
 )
 ---
 
