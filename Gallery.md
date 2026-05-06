@@ -253,6 +253,14 @@ example/03_ResonantAndIsolatedConverters/00_IsolatedBasics/FLYBACK/FLYBACK.png
 )
 ---
 
+#### Forward Converter with Active Clamp – Peak Current Mode Control
+Peack current mode Forward converter with high side active clamp.
+
+![LTspice schematic: Peak current mode forward converter with active clamp](
+example/03_ResonantAndIsolatedConverters/00_IsolatedBasics/FORWARD_ACTIVECLAMP/FORWARD_ACTIVECLAMP.png
+)
+---
+
 
 ### Phase-Shifted & Resonant
 
