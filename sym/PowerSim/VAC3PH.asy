@@ -21,6 +21,7 @@ WINDOW 0 -10 -72 Bottom 2
 SYMATTR SpiceLine vac=100
 SYMATTR SpiceLine2 freq=60
 SYMATTR Description Three phase power source
+SYMATTR Value type=0
 PIN -64 0 NONE 8
 PINATTR PinName n
 PINATTR SpiceOrder 1
