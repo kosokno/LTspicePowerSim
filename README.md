@@ -1,3 +1,7 @@
+<p align="center">
+  <img src="img/LTspicePowerSim.png" alt="LTspicePowerSim hero image" width="100%">
+</p>
+
 # LTspicePowerSim
 LTspicePowerSim is a Simulink-like power electronics simulation environment built on LTspice. It provides a library of reusable circuit-level models together with extensive example circuits, making power electronics simulation easier and more accessible for engineers and researchers.
 
@@ -29,7 +33,7 @@ LTspicePowerSim is a Simulink-like power electronics simulation environment buil
 ![LTspice schematic: CCCV buck converter for battery charging (CC/CV control)](./example/06_BatteryAndEnergyStorage/01_BatteryModels/BUCK_CCCV/BUCK_CCCV.png)
 
 
-### Boundary Counduction Mode Flyback Converter (BCM / CrCM)
+### Boundary Conduction Mode Flyback Converter (BCM / CrCM)
 ![LTspice schematic: Boundary conduction mode flyback converter (BCM / CrCM)](./example/03_ResonantAndIsolatedConverters/00_IsolatedBasics/FLYBACK/FLYBACK.png)
 
 
@@ -60,7 +64,7 @@ LTspicePowerSim is a Simulink-like power electronics simulation environment buil
 ### Two-Phase Stepper Motor Control using FOC
 ![LTspice schematic: Two-phase stepper motor control using field-oriented control (FOC)](./example/05_MotorDriveAndControl/01_StepperMotorDrives/STEP2PH_FOC/STEP2PH_FOC.png)
 
-### Nerural-Network Controlled Buck Converter using [pytorch2ltspice](https://github.com/kosokno/pytorch2ltspice.git)
+### Neural-Network Controlled Buck Converter using [pytorch2ltspice](https://github.com/kosokno/pytorch2ltspice.git)
 ![LTspice schematic: Neural-network-controlled buck converter (LTspice and PyTorch)](./img/NN_BUCK_VM.png)
 
 
@@ -85,14 +89,14 @@ To use LTspicePowerSim, you need to have the following installed:
 
 - Copy the contents of the `sym\PowerSim` folder from this repository to:
     ```
-   For LTspice 24.0.12 or earler
+   For LTspice 24.0.12 or earlier
     C:\Users\<username>\AppData\Local\LTspice\lib\sym\PowerSim
    
    For LTspice 24.1.0 and up
     C:\Users\<username>\Documents\LTspice\lib\sym\PowerSim
     ```
 - Replace `<username>` with your username.
-- Or you can use following batch files in `bat` folders.
+- Or you can use following batch files in the `bat` folders.
 
     | File Name              | Description                                                                 |
     |------------------------|-----------------------------------------------------------------------------|
@@ -104,14 +108,14 @@ To use LTspicePowerSim, you need to have the following installed:
     > **Note:**  
     > Updated batch files to follow 24.1.0 onwards while keeping old ones in "old(-24.0.12)" folder.
 
-- For LTspice 24.1.0 and up you also need to set the path for the PowerSim folder to be able to open the example files correctly. Just go to **Tools** > **Setting** and add the path as shown below.
+- For LTspice 24.1.0 and up you also need to set the path for the PowerSim folder to be able to open the example files correctly. Just go to **Tools** > **Settings** and add the path as shown below.
 ![LTspice setting: add PowerSim symbol search path](./img/SearchPathSetting.png)
 
 ### Model Installation (macOS)
 
 - Copy the contents of the `sym\PowerSim` folder from this repository to:
     ```
-    /Users/<username>/Library/Application　Support/LTspice/lib/
+    /Users/<username>/Library/Application Support/LTspice/lib/
     ```
 - Replace `<username>` with your username.
 
@@ -123,7 +127,7 @@ To use LTspicePowerSim, you need to have the following installed:
     .options solver="norm"       <-- Other option: "alt"
     .options method="gear"       <-- Other option:"trap", "modtrap"
     ```  
-    Try other option if simulation didn't converge.<br>
+    Try other option if the simulation does not converge.<br>
     The `.options solver` directive is available starting from **LTspice v24.1.0**. 
   - If convergence issues still occur, add:  
     ```spice
