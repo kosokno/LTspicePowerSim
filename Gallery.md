@@ -20,8 +20,8 @@ This gallery presents example circuits included in **LTspicePowerSim**, all prov
 - [Power Factor Correction (PFC)](#power-factor-correction-pfc)
   - [Single-Phase Totem-Pole](#single-phase-totem-pole)
   - [Three-Phase Totem-Pole](#three-phase-totem-pole)
+  - [Matrix Converter](#matrix-converter)
 - [Motor Drive & Control](#motor-drive--control)
-  - [Control Building Blocks](#control-building-blocks)
   - [Stepper Motor Drives](#stepper-motor-drives)
   - [PMSM Drives](#pmsm-drives)
 - [Battery & Energy Storage](#battery--energy-storage)
@@ -263,7 +263,7 @@ example/03_ResonantAndIsolatedConverters/00_IsolatedBasics/FLYBACK_ACTIVECLAMP/F
 
 
 #### Forward Converter with Active Clamp – Peak Current Mode Control
-Peack current mode Forward converter with high side active clamp.
+Peack current mode forward converter with high-side active clamp.
 
 ![LTspice schematic: Peak current mode forward converter with active clamp](
 example/03_ResonantAndIsolatedConverters/00_IsolatedBasics/FORWARD_ACTIVECLAMP/FORWARD_ACTIVECLAMP.png
@@ -360,6 +360,16 @@ Three-phase totem-pole PFC using VOC and space-vector PWM.
 
 ![LTspice schematic: Three-phase totem-pole PFC with VOC and SVPWM](
 example/04_PowerFactorCorrection/02_ThreePhaseTotemPole/3Ph-TTP-PFC_VOC_SVPWM/3Ph-TTP-PFC_VOC_SVPWM.png
+)
+---
+
+### Matrix Converter
+
+#### Three-Phase to Single-Phase HF Matrix Converter AC-DC
+Three-phase to single-phase high-frequency matrix-converter AC-DC example using PQ-based HML PWM and ideal bidirectional switches.
+
+![LTspice schematic: Three-phase to single-phase HF matrix converter AC-DC with PQ-based HML PWM](
+example/04_PowerFactorCorrection/03_MatrixConverter/3Ph-1Ph-HF-MC-ACDC/3Ph-1Ph-HF-MC-ACDC.png
 )
 ---
 
