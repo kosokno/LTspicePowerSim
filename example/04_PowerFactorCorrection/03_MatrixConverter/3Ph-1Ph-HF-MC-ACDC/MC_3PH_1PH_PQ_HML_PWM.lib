@@ -1,0 +1,269 @@
+; ============================================================
+; MC_3PH_1PH_PQ_HML_PWM
+; General P/Q-oriented H/M/L PWM block for a three-phase input
+; to single-phase high-frequency matrix converter.
+;
+; This block generates switching commands using a general
+; H/M/L active-vector allocation.
+;
+; Unlike pattern-derived implementations, this block does not use
+; Af/Bf/Ar/Br or any fixed half-cycle pattern equations.
+;
+; The modulation flow is:
+;
+;   va/vb/vc
+;     -> alpha/beta voltage vector
+;     -> desired input current vector from p/q commands
+;     -> H/M/L pair-vector dwell times
+;     -> positive and negative HF half-cycle switching sequence
+;     -> abc switch commands
+;
+; PWM carrier generation is not included.
+; External saw carrier and sample clock are required.
+;
+; Inputs:
+;   va, vb, vc   : converter-side input phase voltages
+;   iout         : primary-referred transferred/output current
+;                  If the measured current is on the secondary side,
+;                  convert it outside this block before input.
+;                  Example: iout_pri = Nps * iout_secondary
+;   vpri_ref     : primary-side transferred voltage command
+;                  Positive value is assumed for AC-DC operation.
+;   q_ref        : reactive power command
+;                  Normally q_ref = 0 for unity-power-factor operation.
+;   clk          : sample clock for internal SAMPLEHOLD
+;   saw          : PWM carrier ramp from 0 to 1 for each full HF cycle
+;
+; Outputs:
+;   Sau, Sbu, Scu : switch commands from a/b/c phase to u terminal
+;   Sav, Sbv, Scv : switch commands from a/b/c phase to v terminal
+;
+; Notes:
+;   The output signals are gate/control commands, not duty ratios.
+;   Only one of Sau/Sbu/Scu is high at a time.
+;   Only one of Sav/Sbv/Scv is high at a time.
+;
+;   The first half of saw is used for positive primary voltage:
+;     H-M, H-L, M-L, zero
+;
+;   The second half of saw is used for negative primary voltage:
+;     M-H, L-H, L-M, zero
+;
+;   The zero state is implemented as M-M.
+;
+;   If the requested P/Q vector exceeds the feasible modulation
+;   range, the dwell times are scaled down.
+;
+;   This subcircuit uses LTspicePowerSim SAMPLEHOLD.
+;
+;<Revision History>
+;2026-06-28: Initial version
+; ============================================================
+
+.subckt MC_3PH_1PH_PQ_HML_PWM va vb vc iout vpri_ref q_ref clk saw Sau Sbu Scu Sav Sbv Scv
+
+.param Ieps=0.1
+.param Veps2=1
+.param Kpq=1.5
+
+; ------------------------------------------------------------
+; Input phase voltage sorting
+; ------------------------------------------------------------
+Bvh vh 0 V={max(V(va),max(V(vb),V(vc)))}
+Bvl vl 0 V={min(V(va),min(V(vb),V(vc)))}
+Bvm vm 0 V={V(va)+V(vb)+V(vc)-V(vh)-V(vl)}
+
+; ------------------------------------------------------------
+; Phase classification flags
+; ------------------------------------------------------------
+
+; High phase priority: a > b > c
+Bha ha 0 V={(V(va)>=V(vb)) & (V(va)>=V(vc))}
+Bhb hb 0 V={(V(vb)> V(va)) & (V(vb)>=V(vc))}
+Bhc hc 0 V={(V(vc)> V(va)) & (V(vc)> V(vb))}
+
+; Low phase priority: c > b > a
+Blc lc 0 V={(V(vc)<=V(va)) & (V(vc)<=V(vb))}
+Blb lb 0 V={(V(vb)< V(vc)) & (V(vb)<=V(va))}
+Bla la 0 V={(V(va)< V(vc)) & (V(va)< V(vb))}
+
+; Middle phase
+Bma ma 0 V={1-V(ha)-V(la)}
+Bmb mb 0 V={1-V(hb)-V(lb)}
+Bmc mc 0 V={1-V(hc)-V(lc)}
+
+; ------------------------------------------------------------
+; Alpha-beta voltage vector
+;
+; Same amplitude-invariant Clarke transform as LTspicePowerSim
+; CLARKE block.
+; ------------------------------------------------------------
+Bvalpha valpha 0 V={(2/3)*(V(va)-0.5*V(vb)-0.5*V(vc))}
+Bvbeta  vbeta  0 V={(V(vb)-V(vc))/sqrt(3)}
+
+Bv2 v2 0 V={max(V(valpha)*V(valpha)+V(vbeta)*V(vbeta),Veps2)}
+
+; ------------------------------------------------------------
+; Desired input current vector coefficient
+;
+; The average input current is modeled as:
+;
+;   i_abc = iout * d_abc
+;
+; where d_abc is the duty-like current coefficient vector.
+;
+; Desired per-current power commands:
+;
+;   p_per_iout = vpri_ref
+;   q_per_iout = q_ref / iout
+;
+; The requested alpha-beta current coefficient is obtained from:
+;
+;   p = Kpq * (v_alpha*i_alpha + v_beta*i_beta)
+;   q = Kpq * (v_beta*i_alpha - v_alpha*i_beta)
+;
+; ------------------------------------------------------------
+Bq_per q_per 0 V={V(q_ref)/max(abs(V(iout)),Ieps)}
+
+Bdalpha dalpha 0 V={(V(valpha)*V(vpri_ref)+V(vbeta)*V(q_per))/(Kpq*V(v2))}
+Bdbeta  dbeta  0 V={(V(vbeta)*V(vpri_ref)-V(valpha)*V(q_per))/(Kpq*V(v2))}
+
+; Inverse Clarke, zero-sequence current coefficient = 0
+Bda_raw da_raw 0 V={V(dalpha)}
+Bdb_raw db_raw 0 V={-0.5*V(dalpha)+sqrt(3)*0.5*V(dbeta)}
+Bdc_raw dc_raw 0 V={-0.5*V(dalpha)-sqrt(3)*0.5*V(dbeta)}
+
+; ------------------------------------------------------------
+; Convert abc current coefficient into H/M/L coordinates
+; ------------------------------------------------------------
+BdHc_raw dHc_raw 0 V={V(da_raw)*V(ha)+V(db_raw)*V(hb)+V(dc_raw)*V(hc)}
+BdMc_raw dMc_raw 0 V={V(da_raw)*V(ma)+V(db_raw)*V(mb)+V(dc_raw)*V(mc)}
+BdLc_raw dLc_raw 0 V={V(da_raw)*V(la)+V(db_raw)*V(lb)+V(dc_raw)*V(lc)}
+
+; ------------------------------------------------------------
+; General H/M/L pair-vector decomposition
+;
+; Active pair current vectors:
+;
+;   H-M : +H, -M
+;   H-L : +H, -L
+;   M-L : +M, -L
+;
+; The requested current coefficient is decomposed into:
+;
+;   dH = w_HM + w_HL
+;   dM = -w_HM + w_ML
+;   dL = -w_HL - w_ML
+;
+; For unity-PF operation inside the voltage sector:
+;
+;   dH >= 0
+;   dL <= 0
+;
+; If the request is outside the feasible sector, it is projected
+; into the feasible H/M/L active-vector region.
+; ------------------------------------------------------------
+
+BposH posH 0 V={max(V(dHc_raw),0)}
+BnegL negL 0 V={max(-V(dLc_raw),0)}
+
+; Use the long H-L vector as the shared component.
+Bwhl0 whl0 0 V={min(V(posH),V(negL))}
+Bwhm0 whm0 0 V={V(posH)-V(whl0)}
+Bwml0 wml0 0 V={V(negL)-V(whl0)}
+
+; Feasibility scaling.
+; Total active dwell must be <= 1.
+Bwsum0  wsum0  0 V={V(whm0)+V(whl0)+V(wml0)}
+Bwscale wscale 0 V={min(1,1/max(V(wsum0),1u))}
+
+Bwhm whm 0 V={V(whm0)*V(wscale)}
+Bwhl whl 0 V={V(whl0)*V(wscale)}
+Bwml wml 0 V={V(wml0)*V(wscale)}
+
+Bwzero wzero 0 V={max(1-V(whm)-V(whl)-V(wml),0)}
+
+; ------------------------------------------------------------
+; Sample and hold modulation variables
+;
+; clk is used as the internal sample clock.
+; These sampled values are used for Sxx generation.
+; ------------------------------------------------------------
+
+Xsh_whm clk whm whm_s SAMPLEHOLD
+Xsh_whl clk whl whl_s SAMPLEHOLD
+Xsh_wml clk wml wml_s SAMPLEHOLD
+Xsh_wzero clk wzero wzero_s SAMPLEHOLD
+
+Xsh_ha clk ha ha_s SAMPLEHOLD
+Xsh_hb clk hb hb_s SAMPLEHOLD
+Xsh_hc clk hc hc_s SAMPLEHOLD
+
+Xsh_ma clk ma ma_s SAMPLEHOLD
+Xsh_mb clk mb mb_s SAMPLEHOLD
+Xsh_mc clk mc mc_s SAMPLEHOLD
+
+Xsh_la clk la la_s SAMPLEHOLD
+Xsh_lb clk lb lb_s SAMPLEHOLD
+Xsh_lc clk lc lc_s SAMPLEHOLD
+
+; ------------------------------------------------------------
+; Full-cycle saw to half-cycle local carrier
+;
+; saw = 0 to 0.5:
+;   positive primary voltage half-cycle
+;
+; saw = 0.5 to 1:
+;   negative primary voltage half-cycle
+; ------------------------------------------------------------
+
+Bpos_half pos_half 0 V={if(V(saw)<0.5,1,0)}
+Btau_h tau_h 0 V={if(V(saw)<0.5,2*V(saw),2*(V(saw)-0.5))}
+
+; Boundaries inside each half-cycle
+Bt1 t1 0 V={V(whm_s)}
+Bt2 t2 0 V={V(whm_s)+V(whl_s)}
+Bt3 t3 0 V={V(whm_s)+V(whl_s)+V(wml_s)}
+
+; Active interval flags
+Bact_hm act_hm 0 V={if(V(tau_h)<V(t1),1,0)}
+Bact_hl act_hl 0 V={if((V(tau_h)>=V(t1)) & (V(tau_h)<V(t2)),1,0)}
+Bact_ml act_ml 0 V={if((V(tau_h)>=V(t2)) & (V(tau_h)<V(t3)),1,0)}
+Bact_z  act_z  0 V={if(V(tau_h)>=V(t3),1,0)}
+
+; ------------------------------------------------------------
+; H/M/L switching commands
+;
+; Positive half-cycle:
+;   H-M, H-L, M-L, M-M
+;
+; Negative half-cycle:
+;   M-H, L-H, L-M, M-M
+; ------------------------------------------------------------
+
+; u terminal H/M/L switching commands
+BShu Shu 0 V={if(V(pos_half)>0.5, V(act_hm)+V(act_hl), 0)}
+BSmu Smu 0 V={if(V(pos_half)>0.5, V(act_ml)+V(act_z), V(act_hm)+V(act_z))}
+BSlu Slu 0 V={if(V(pos_half)>0.5, 0, V(act_hl)+V(act_ml))}
+
+; v terminal H/M/L switching commands
+BShv Shv 0 V={if(V(pos_half)>0.5, 0, V(act_hm)+V(act_hl))}
+BSmv Smv 0 V={if(V(pos_half)>0.5, V(act_hm)+V(act_z), V(act_ml)+V(act_z))}
+BSlv Slv 0 V={if(V(pos_half)>0.5, V(act_hl)+V(act_ml), 0)}
+
+; ------------------------------------------------------------
+; Convert H/M/L switching commands to abc switching commands
+;
+; Sau/Sbu/Scu : a/b/c phase to u terminal
+; Sav/Sbv/Scv : a/b/c phase to v terminal
+; ------------------------------------------------------------
+
+BSau Sau 0 V={V(Shu)*V(ha_s)+V(Smu)*V(ma_s)+V(Slu)*V(la_s)}
+BSbu Sbu 0 V={V(Shu)*V(hb_s)+V(Smu)*V(mb_s)+V(Slu)*V(lb_s)}
+BScu Scu 0 V={V(Shu)*V(hc_s)+V(Smu)*V(mc_s)+V(Slu)*V(lc_s)}
+
+BSav Sav 0 V={V(Shv)*V(ha_s)+V(Smv)*V(ma_s)+V(Slv)*V(la_s)}
+BSbv Sbv 0 V={V(Shv)*V(hb_s)+V(Smv)*V(mb_s)+V(Slv)*V(lb_s)}
+BScv Scv 0 V={V(Shv)*V(hc_s)+V(Smv)*V(mc_s)+V(Slv)*V(lc_s)}
+
+.ends MC_3PH_1PH_PQ_HML_PWM
