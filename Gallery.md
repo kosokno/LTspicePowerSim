@@ -21,6 +21,7 @@ This gallery presents example circuits included in **LTspicePowerSim**, all prov
   - [Single-Phase Totem-Pole](#single-phase-totem-pole)
   - [Three-Phase Totem-Pole](#three-phase-totem-pole)
   - [Matrix Converter](#matrix-converter)
+  - [Cascaded H-Bridge](#cascaded-h-bridge)
 - [Motor Drive & Control](#motor-drive--control)
   - [Stepper Motor Drives](#stepper-motor-drives)
   - [PMSM Drives](#pmsm-drives)
@@ -373,6 +374,19 @@ example/04_PowerFactorCorrection/03_MatrixConverter/3Ph-1Ph-HF-MC-ACDC/3Ph-1Ph-H
 )
 ---
 
+### Cascaded H-Bridge
+
+#### Single-Phase Cascaded H-Bridge PFC – Three Cells
+Single-phase cascaded H-bridge PFC using three cells and phase-shifted PWM.
+
+![LTspice schematic: Single-phase three-cell cascaded H-bridge PFC with phase-shifted PWM](
+example/04_PowerFactorCorrection/04_CascadedHBridge/1Ph-CHB-PFC_3Cell/1Ph-CHB-PFC_3Cell.png
+)
+---
+
+
+
+
 ## Motor Drive & Control
 
 ### Stepper Motor Drives
@@ -399,7 +413,6 @@ FOC-based current control for stepper motors.
 ![LTspice schematic: Two-phase stepper motor field-oriented control](
 example/05_MotorDriveAndControl/01_StepperMotorDrives/STEP2PH_FOC/STEP2PH_FOC.png
 )
-
 ---
 
 ### PMSM Drives
@@ -411,6 +424,16 @@ Field-oriented control implementation for PMSM drives.
 example/05_MotorDriveAndControl/02_PMSMDrives/PMSM_FOC/PMSM_FOC.png
 )
 ---
+
+#### PMSM – FOC with a Three-Level NPC Inverter
+Field-oriented PMSM control using a three-level neutral-point-clamped (NPC) inverter, demonstrating startup and load response with a 1,200 V DC bus and a 3,000 rpm speed reference.
+
+![LTspice schematic: PMSM field-oriented control with a three-level NPC inverter](
+example/05_MotorDriveAndControl/02_PMSMDrives/PMSM_FOC_3LVNPC/PMSM_FOC_3LVNPC.png
+)
+---
+
+
 
 ## Battery & Energy Storage
 
