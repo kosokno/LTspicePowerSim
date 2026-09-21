@@ -8,6 +8,7 @@ WINDOW 0 0 -24 Bottom 2
 SYMATTR Description Pulse Width Modulator, outpus pwm signal with specified duty (0-1)
 SYMATTR SpiceLine freq=100k
 SYMATTR SpiceLine2 phase=0
+SYMATTR Value2 tri=0
 PIN -48 0 NONE 8
 PINATTR PinName duty
 PINATTR SpiceOrder 1

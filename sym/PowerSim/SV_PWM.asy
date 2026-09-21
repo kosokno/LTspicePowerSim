@@ -12,6 +12,7 @@ TEXT 1 62 Bottom 2 b'
 TEXT 33 62 Bottom 2 c'
 WINDOW 0 0 -64 Bottom 2
 SYMATTR SpiceLine freq=10k
+SYMATTR SpiceLine2 ug=0
 PIN -80 -32 LEFT 8
 PINATTR PinName a
 PINATTR SpiceOrder 1
